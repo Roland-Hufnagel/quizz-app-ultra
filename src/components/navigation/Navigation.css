@@ -1,0 +1,17 @@
+.footer {
+    border-top: 1px solid black;
+    padding: 10px;
+    background-color: var(--bg-colorHeaderFooter);
+    display: flex;
+    justify-content: center;
+  }
+  .footer__link {
+    padding: 15px;
+  }
+  .footer__image {
+    width: 50px;
+  }
+  .footer--active {
+    background-color: white;
+    border-radius: 10px;
+  }

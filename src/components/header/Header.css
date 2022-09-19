@@ -1,0 +1,6 @@
+.header {
+  background-color: var(--bg-colorHeaderFooter);
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+
