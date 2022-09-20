@@ -1,24 +1,30 @@
 import bookmarkImg from "../../assets/bookmark.png"
 import "./Card.css";
 
-export default function Card() {
+
+
+export default function Card({question, answer, tags}) {
   return (
     <li className="card__list-item explode-animation">
       <section className="card">
-        <p className="card__question">Question</p>
-        <button class="card__answer-button">
+        <p className="card__question">{question}</p>
+        <button className="card__answer-button">
           Show Answer
         </button>
-        <p className="card__answer">Answer</p>
+        <p className="card__answer">{answer}</p>
         <ul className="card__tag-list">
-          <li className="card__tag-list-item">
-            <button>#HTML</button>
-          </li>
+          
+            {// Use of implizit return. Immer das oberste Element braucht einen Key!
+              tags.map((tag, index) =>  <li key={index} className="card__tag-list-item"><button  >{tag}</button></li>
+              )
+            }
+            
+          
         </ul>
         <input
           type="image"
           alt="bookmark icon"
-          class="card__bookmark-icon"
+          className="card__bookmark-icon"
           src={bookmarkImg}
           data-js="bookmark-button"
         />

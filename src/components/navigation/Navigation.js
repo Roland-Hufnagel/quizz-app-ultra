@@ -7,47 +7,47 @@ import navProfileIcon from "../../assets/navProfileIcon-64.png";
 
 export default function Navigation() {
   return (
-    <footer class="footer">
+    <footer className="footer">
       <a
         href="index.html"
-        class="footer__link footer--active"
+        className="footer__link footer--active"
         aria-label="go to homepage"
       >
         <img
-          class="footer__image"
+          className="footer__image"
           alt="home icon"
           src={navHomeIcon}
         />
       </a>
       <a
         href="bookmark.html"
-        class="footer__link"
+        className="footer__link"
         aria-label="go to bookmark site"
       >
         <img
-          class="footer__image"
+          className="footer__image"
           alt="bookmark icon"
           src={navBookmarkIcon}
         />
       </a>
       <a
         href="form.html"
-        class="footer__link"
+        className="footer__link"
         aria-label="go to create cards site"
       >
         <img
-          class="footer__image"
+          className="footer__image"
           alt="create card icon"
           src={navCreateCardIcon}
         />
       </a>
       <a
         href="profile.html"
-        class="footer__link"
+        className="footer__link"
         aria-label="go to profile site"
       >
         <img
-          class="footer__image"
+          className="footer__image"
           alt="profile icon"
           src={navProfileIcon}
         />
