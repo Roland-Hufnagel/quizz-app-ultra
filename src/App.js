@@ -2,7 +2,11 @@
 import "./App.css";
 import Header from "./components/header/Header";
 import Navigation from "./components/navigation/Navigation";
-import Card from "./components/card/Card";
+//import Card from "./components/card/Card";
+import Cards from "./pages/Cards";
+import Create from "./pages/Create";
+import Profile from "./pages/Profile";
+import { useState } from "react";
 
 const cards = [
   {
@@ -10,56 +14,62 @@ const cards = [
     question: "Warum?",
     answer: "Warum nicht?",
     tags: ["HTML", "CSS"],
+    bookmarked: false,
   },
   {
     id: 2,
     question: "Ist Milch oder Kaffee besser?",
     answer: "Mal so, mal so?",
     tags: ["HTML", "CSS", "Human Ressources"],
+    bookmarked: true,
   },
   {
     id: 3,
     question: "Milch oder Milchschaum?",
     answer: "Keine Ahnung!",
     tags: ["HTML", "Joy"],
+    bookmarked: false,
   },
   {
     id: 4,
     question: "Warum ist die Banane krumm?",
     answer: "EURO Norm 32153.22.33!",
     tags: ["HTML", "Fruits", "CSS"],
+    bookmarked: true,
   },
   {
     id: 5,
-    question: "Ist Milch oder Kaffee besser?",
-    answer: "Mal so, mal so!",
+    question: "Erst die Henne oder erst das Ei?",
+    answer: "Hmmmmm?",
     tags: ["HTML", "CSS", "Human Ressources"],
+    bookmarked: false,
+  },
+  {
+    id: 6,
+    question: "Wer wird Deutscher Meister?",
+    answer: "Entenhausen!",
+    tags: ["HTML", "CSS", "Disney"],
+    bookmarked: true,
   },
 ];
 function App() {
+  const [activeSite, setActiveSite] = useState("home");
+console.log(activeSite);
   return (
     <div className="App container">
       <Header />
       <main className="main">
-        <ul className="card__list grid-container">
-          {/* {
-            cards.map(card => {
-              return(
-                <Card key={card.id} question={card.question} answer={card.answer} tags={card.tags} />
-              )
-            })
-          } */}
-          { // Destructuring des einzelnen card-Objektes und Implizites Return
-            cards.map(({id, question, answer, tags}) => <Card key={id} question={question} answer={answer} tags={tags} />
-            )
-          }
-          
-          {/* <Card question="Wie lang ist eine Currywurst?" answer="0,135 Zoll" tags={['#HTML','#CSS','#JS']}/>
-          <Card question="Wer wird Deutscher Meister?" answer="FC Kamen-Methler" tags={['#HTML','#C++','#JS']}/>
-          <Card question="Was ist der Sinn des Lebens?" answer="48" tags={['#HTML','#CSS','#YOGA','Meditation']}/> */}
-        </ul>
+        {activeSite === 'home' && <Cards cards={cards} />}
+        {activeSite === 'bookmark' && <Cards cards={cards.filter(card => {return card.bookmarked})} />}
+        {activeSite === 'create' && <Create />}
+        {activeSite === 'profile' && <Profile  />}
       </main>
-      <Navigation />
+      <Navigation
+        activeSite={activeSite}
+        onChange={(site) => {
+          setActiveSite(site);
+        }}
+      />
     </div>
   );
 }

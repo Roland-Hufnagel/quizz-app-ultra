@@ -59,5 +59,8 @@
   .card__tag-list-item {
     display: inline;
     margin: 5px;
+    border: 1px solid black;
+    border-radius: 0.2em;
+    padding: 0 0.1em;
   }
   

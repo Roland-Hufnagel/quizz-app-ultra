@@ -3,25 +3,39 @@ import navHomeIcon from "../../assets/navHomeIcon-64.png";
 import navBookmarkIcon from "../../assets/navBookmarkIcon-64.png";
 import navCreateCardIcon from "../../assets/navCreateCardIcon-64.png";
 import navProfileIcon from "../../assets/navProfileIcon-64.png";
+//import { useState } from "react";
 
+export default function Navigation(props) {
+  //const [activeSite, setActiveSite] = useState('home');
 
-export default function Navigation() {
   return (
     <footer className="footer">
       <a
+        onClick={(event) => {
+          event.preventDefault();
+          props.onChange("home");
+        }}
         href="index.html"
-        className="footer__link footer--active"
+        className={
+          props.activeSite === "home"
+            ? "footer__link footer--active"
+            : "footer__link"
+        }
         aria-label="go to homepage"
       >
-        <img
-          className="footer__image"
-          alt="home icon"
-          src={navHomeIcon}
-        />
+        <img className="footer__image" alt="home icon" src={navHomeIcon} />
       </a>
       <a
+        onClick={(event) => {
+          event.preventDefault();
+          props.onChange("bookmark");
+        }}
         href="bookmark.html"
-        className="footer__link"
+        className={
+          props.activeSite === "bookmark"
+            ? "footer__link footer--active"
+            : "footer__link"
+        }
         aria-label="go to bookmark site"
       >
         <img
@@ -31,8 +45,16 @@ export default function Navigation() {
         />
       </a>
       <a
+        onClick={(event) => {
+          event.preventDefault();
+          props.onChange("create");
+        }}
         href="form.html"
-        className="footer__link"
+        className={
+          props.activeSite === "create"
+            ? "footer__link footer--active"
+            : "footer__link"
+        }
         aria-label="go to create cards site"
       >
         <img
@@ -42,8 +64,16 @@ export default function Navigation() {
         />
       </a>
       <a
+        onClick={(event) => {
+          event.preventDefault();
+          props.onChange("profile");
+        }}
         href="profile.html"
-        className="footer__link"
+        className={
+          props.activeSite === "profile"
+            ? "footer__link footer--active"
+            : "footer__link"
+        }
         aria-label="go to profile site"
       >
         <img
